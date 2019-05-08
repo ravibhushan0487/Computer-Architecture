@@ -3,6 +3,10 @@ Ravi Bhushan ASU#1214347783
 
 Task 1: Memory Hierarchy Performance Measurement
 ------------------------------------------------
+Write a C program running on Linux to access (read, write) memory in different pattern (linear, random),
+and measure the average access time of L1, L2, L3 cache and main memory. You can measure the average
+access time to an array.
+
 Required Files:
 measurement.sh
 memory_performance_measurement_clock.c
@@ -56,6 +60,17 @@ When option 4 is entered, it will display dynamic read access time for each elem
 
 Task 2: Gem5 Simulator
 ----------------------
+Run the program you wrote in the task 1 on Gem5 simulator. You need to configure your simulator as
+following.
+CPU type: DerivO3CPU
+L1 instruction cache: 2-way set-associate, total size 32KB, LRU
+L1 data cache: 4-way set-associate, total size 64KB, LRU
+L2 unified cache: 16-way set-associate, total size 256KB, LRU
+
+Other system settings should remain unchanged (default setting), including cacheline_size=64 bytes.
+Assume the CPU in the simulator running in 1000MHz, you could estimate the program execution time
+using the simulation cycles.
+
 Required Files:
 measurement_gem5.sh
 code_performance_measurement_perf_gem5.c
